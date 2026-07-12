@@ -1,3 +1,7 @@
+output "kubernetes_fleet_members_id" {
+  description = "Map of id values across all kubernetes_fleet_members, keyed the same as var.kubernetes_fleet_members"
+  value       = { for k, v in azurerm_kubernetes_fleet_member.kubernetes_fleet_members : k => v.id }
+}
 output "kubernetes_fleet_members_group" {
   description = "Map of group values across all kubernetes_fleet_members, keyed the same as var.kubernetes_fleet_members"
   value       = { for k, v in azurerm_kubernetes_fleet_member.kubernetes_fleet_members : k => v.group }
